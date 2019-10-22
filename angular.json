@@ -36,6 +36,12 @@
                 "input": "src/theme/variables.scss"
               },
               {
+                "input": "./node_modules/videogular2/fonts/videogular.css"
+              },
+              {
+                "input": "./node_modules/dashjs/dist/dash.all.min.js"
+              },
+              {
                 "input": "src/global.scss"
               }
             ],

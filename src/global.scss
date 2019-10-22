@@ -24,3 +24,39 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.active {
+  color: var(--ion-color-primary);
+  ion-icon {
+    color: var(--ion-color-primary);
+  }
+}
+.login-logo {
+  padding: 20px 0;
+  min-height: 200px;
+  text-align: center;
+}
+
+.login-logo img {
+  max-width: 150px;
+}
+
+.list {
+  margin-bottom: 0;
+}
+.signup-logo {
+  padding: 20px 0;
+  min-height: 200px;
+  text-align: center;
+}
+
+.signup-logo img {
+  max-width: 150px;
+}
+
+.list {
+  margin-bottom: 0;
+}
+.swiper-slide img {
+  width: 100%;
+}

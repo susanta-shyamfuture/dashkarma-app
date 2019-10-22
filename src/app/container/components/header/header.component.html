@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button *ngIf="routerData && routerData.hasBackButton"></ion-back-button>
+      <ion-menu-button *ngIf="routerData && routerData.hasMenuButton"></ion-menu-button>
+    </ion-buttons>
+    <ion-title *ngIf="routerData">
+      {{routerData.title}}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="mail-unread"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="notifications"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

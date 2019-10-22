@@ -1,0 +1,85 @@
+<app-header [routerData]="routerData"></app-header>
+
+<ion-content class="ion-padding">
+  <ion-slides pager="true" [options]="slidesOpts">
+    <ion-slide>
+      <img src="/assets/shapes.svg" class="w-100"/>
+    </ion-slide>
+    <ion-slide>
+      <img src="/assets/shapes.svg" class="w-100"/>
+    </ion-slide>
+    <ion-slide>
+      <img src="/assets/shapes.svg" class="w-100"/>
+    </ion-slide>
+    <ion-slide>
+      <img src="/assets/shapes.svg" class="w-100"/>
+    </ion-slide>
+    <ion-slide>
+      <img src="/assets/shapes.svg" class="w-100"/>
+    </ion-slide>
+    <ion-slide>
+      <img src="/assets/shapes.svg" class="w-100"/>
+    </ion-slide>
+    <ion-slide>
+      <img src="/assets/shapes.svg" class="w-100"/>
+    </ion-slide>
+    <ion-slide>
+      <img src="/assets/shapes.svg" class="w-100"/>
+    </ion-slide>
+    <ion-slide>
+      <img src="/assets/shapes.svg" class="w-100"/>
+    </ion-slide>
+  </ion-slides>
+  
+  <vg-player (onPlayerReady)="onPlayerReady($event)">
+    <vg-overlay-play></vg-overlay-play>
+    <vg-buffering></vg-buffering>
+
+    <vg-controls>
+        <vg-play-pause></vg-play-pause>
+
+        <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+        <vg-quality-selector *ngIf="bitrates" (onBitrateChange)="setBitrate($event)" [bitrates]="bitrates"></vg-quality-selector>
+        <vg-mute></vg-mute>
+        <vg-volume></vg-volume>
+
+        <vg-fullscreen></vg-fullscreen>
+    </vg-controls>
+    
+    <video #media
+      (onGetBitrates)="bitrates = $event"
+      [vgMedia]="media"
+      [vgDash]="currentStream.source"
+      [vgHls]="currentStream.source"
+      [vgDRMToken]="currentStream.token"
+      [vgDRMLicenseServer]="currentStream.licenseServers"
+      id="singleVideo"
+      crossorigin
+    >
+    </video>
+  </vg-player>
+  
+  <ion-item>
+    <ion-label position="stacked">Media Url:</ion-label>
+    <ion-input [(ngModel)]="currentStream.source"></ion-input>
+  </ion-item>
+  <ion-list>
+    <ion-item *ngFor="let stream of streamsList" (click)="onClickStream(stream)" [ngClass]="{'active': currentStream === stream}">
+      <ion-label>
+        {{ stream.label }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+    <!-- <video #media
+      [vgMedia]="media"
+      #vgDash="vgDash"
+      [vgDash]="stream.source"
+      (onGetBitrates)="dashBitrates = $event"
+      id="singleVideo"
+      preload="auto"
+    >
+      <source src="https://static.videezy.com/system/resources/previews/000/008/090/original/Data_Grid.mp4" type="video/mp4">
+      <source src="assets/stock-footage.webm" type="video/webm">
+    </video> -->
