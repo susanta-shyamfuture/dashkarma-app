@@ -39,13 +39,17 @@
                 "input": "./node_modules/videogular2/fonts/videogular.css"
               },
               {
-                "input": "./node_modules/dashjs/dist/dash.all.min.js"
-              },
-              {
                 "input": "src/global.scss"
               }
             ],
-            "scripts": []
+            "scripts": [
+              {
+                "input": "./node_modules/dashjs/dist/dash.all.min.js"
+              },
+              {
+                "input": "./node_modules/hls.js/dist/hls.min.js"
+              }
+            ]
           },
           "configurations": {
             "production": {

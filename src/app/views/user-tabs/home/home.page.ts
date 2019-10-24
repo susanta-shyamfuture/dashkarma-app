@@ -5,7 +5,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subject, Subscription, timer } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { BitrateOption, VgAPI } from 'videogular2/compiled/core';
+import { BitrateOption, VgAPI, VgFullscreenAPI } from 'videogular2/compiled/core';
 import { IDRMLicenseServer } from 'videogular2/compiled/streaming';
 import { VgDASH } from 'videogular2/compiled/src/streaming/vg-dash/vg-dash';
 import { VgHLS } from 'videogular2/compiled/src/streaming/vg-hls/vg-hls';
@@ -27,6 +27,7 @@ export class HomePage implements OnInit {
   @ViewChild(VgHLS, { static: true }) vgHls: VgHLS;
   currentStream: IMediaStream;
   api: VgAPI;
+  fsAPI: VgFullscreenAPI;
   public routerData: any;
   bitrates: BitrateOption[];
   streamsList: IMediaStream[] = [
@@ -188,6 +189,7 @@ export class HomePage implements OnInit {
     const timerStore: Subscription = timer(0, 10).subscribe(
         val => {
             this.currentStream = stream;
+            console.log(this.currentStream);
             timerStore.unsubscribe();
         }
     );

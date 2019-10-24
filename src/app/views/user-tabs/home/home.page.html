@@ -35,7 +35,7 @@
     <vg-overlay-play></vg-overlay-play>
     <vg-buffering></vg-buffering>
 
-    <vg-controls>
+    <vg-controls [vgAutohide]="true" [vgAutohideTime]="1.5">
         <vg-play-pause></vg-play-pause>
 
         <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
@@ -61,7 +61,7 @@
   
   <ion-item>
     <ion-label position="stacked">Media Url:</ion-label>
-    <ion-input [(ngModel)]="currentStream.source"></ion-input>
+    <ion-input [(ngModel)]="currentStream.source" readonly></ion-input>
   </ion-item>
   <ion-list>
     <ion-item *ngFor="let stream of streamsList" (click)="onClickStream(stream)" [ngClass]="{'active': currentStream === stream}">

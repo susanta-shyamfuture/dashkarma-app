@@ -10,6 +10,7 @@ import {VgBufferingModule} from 'videogular2/compiled/buffering';
 import { VgStreamingModule } from 'videogular2/compiled/streaming';
 // Components
 import { HeaderComponent } from '../../container/components';
+import Hls from 'hls.js';
 @NgModule({
   declarations: [
     HeaderComponent
